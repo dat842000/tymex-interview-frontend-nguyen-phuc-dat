@@ -1,0 +1,9 @@
+.body {
+  height: 300vh;
+  position: relative;
+
+  .body-background {
+    position: absolute;
+    bottom: 0;
+  }
+}

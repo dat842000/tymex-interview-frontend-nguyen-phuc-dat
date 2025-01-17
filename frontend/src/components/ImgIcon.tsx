@@ -8,14 +8,25 @@ type CustomStyle = {
 
 type SelfProps = {
   src: string;
+  alt?: string;
+  className?: string;
   size?: number;
 };
 
 type Props = SelfProps & CustomStyle;
 
-export default function ImgIcon({ src, height, width, size = 16 }: Props) {
+export default function ImgIcon({
+  src,
+  alt = 'img-icon',
+  className = 'img-icon',
+  height,
+  width,
+  size = 24,
+}: Props) {
   return (
     <img
+      alt={alt}
+      className={className}
       style={{
         height: height ? height : `${size}px`,
         width: width ? width : `${size}px`,

@@ -3,7 +3,8 @@ import { NAV_BAR_ITEMS } from '../utils/constant.ts';
 import { NavItem } from '../types/navItem.ts';
 import AntdButton from './AntdButton.tsx';
 import { Button, Divider, Dropdown, MenuProps, Space, theme } from 'antd';
-import { DownOutlined, GlobalOutlined } from '@ant-design/icons';
+import GlobalIcon from '../assets/icons/world.svg';
+import ChevronDown from '../assets/icons/chevron-down.svg';
 import ImgIcon from './ImgIcon.tsx';
 
 const { useToken } = theme;
@@ -103,12 +104,10 @@ const Navigation = () => {
             </div>
           )}
         >
-          <a onClick={(e) => e.preventDefault()}>
-            <Space>
-              <GlobalOutlined />
-              <DownOutlined />
-            </Space>
-          </a>
+          <Space>
+            <ImgIcon src={GlobalIcon} />
+            <ImgIcon src={ChevronDown} />
+          </Space>
         </Dropdown>
       </div>
     </div>
