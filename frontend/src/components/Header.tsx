@@ -1,6 +1,11 @@
-import React from "react";
+import React from 'react';
+import Navigation from './Navigation.tsx';
 
 const Header = () => {
-  return <div></div>;
+  return (
+    <div className="header">
+      <Navigation></Navigation>
+    </div>
+  );
 };
 export default Header;

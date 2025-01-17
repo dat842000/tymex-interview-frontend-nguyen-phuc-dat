@@ -1,0 +1,35 @@
+.nav-bar {
+  background-color: rgba(23, 22, 26, 0.7);
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+
+  &__container-left {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 60px;
+
+    &__item-label {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 20px;
+      text-transform: uppercase;
+
+      &.isActive {
+        background: linear-gradient(to right, #da458f, #da34dd);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+
+  &__container-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}
