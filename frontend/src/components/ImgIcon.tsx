@@ -15,14 +15,14 @@ type SelfProps = {
 
 type Props = SelfProps & CustomStyle;
 
-export default function ImgIcon({
+const ImgIcon = ({
   src,
   alt = 'img-icon',
   className = 'img-icon',
   height,
   width,
   size = 24,
-}: Props) {
+}: Props) => {
   return (
     <img
       alt={alt}
@@ -34,4 +34,5 @@ export default function ImgIcon({
       src={src}
     />
   );
-}
+};
+export default ImgIcon;

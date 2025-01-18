@@ -4,7 +4,9 @@ import Navigation from './Navigation.tsx';
 const Header = () => {
   return (
     <div className="header">
-      <Navigation></Navigation>
+      <div className="header__layer">
+        <Navigation></Navigation>
+      </div>
     </div>
   );
 };

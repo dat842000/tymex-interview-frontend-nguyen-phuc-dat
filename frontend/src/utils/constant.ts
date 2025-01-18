@@ -26,3 +26,16 @@ export const NAV_FOOTER_POLICY_ITEMS: NavItem[] = [
   { label: 'Legal', path: '/legal' },
   { label: 'Privacy', path: '/privacy' },
 ];
+
+export const CATEGORIES = [
+  'All',
+  'Upper Body',
+  'Lower Body',
+  'Hat',
+  'Shoes',
+  'Accessory',
+  'Legendary',
+  'Mythic',
+  'Epic',
+  'Rare',
+];

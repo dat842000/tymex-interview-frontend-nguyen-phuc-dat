@@ -42,11 +42,7 @@ const Footer = () => {
               Subcribe to receive our latest update
             </span>
             <div className="footer__subcribe-section__content">
-              <Input
-                width={'200px'}
-                variant="outlined"
-                placeholder="Your email address"
-              />
+              <Input variant="outlined" placeholder="Your email address" />
               <AntdButton text="Subcribe" />
             </div>
           </div>

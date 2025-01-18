@@ -1,0 +1,29 @@
+.list-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 75%;
+
+  &__category {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    gap: 20px;
+  }
+
+  &__content {
+    height: 1400px;
+    overflow-y: scroll;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}

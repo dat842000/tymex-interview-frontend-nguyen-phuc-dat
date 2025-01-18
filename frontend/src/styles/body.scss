@@ -1,6 +1,17 @@
 .body {
-  height: 300vh;
+  height: 1900px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 0px;
+
+  .body-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 60px 0px 120px;
+    overflow: auto;
+  }
 
   .body-background {
     position: absolute;

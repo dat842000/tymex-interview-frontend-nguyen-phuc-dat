@@ -1,0 +1,54 @@
+.card {
+  width: 180px;
+  height: 264px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #3a384199;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+
+  &__img-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #fe5a5a, #f163d2);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: white;
+  }
+
+  &-price {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  &-name {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Inter';
+  }
+
+  &-author {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-family: 'Inter';
+    color: white;
+  }
+}

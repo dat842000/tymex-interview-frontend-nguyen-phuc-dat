@@ -1,0 +1,17 @@
+.slider {
+  &-section {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter';
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 25px 0px 15px 0px;
+  }
+  &-marks {
+    display: flex;
+    justify-content: space-between;
+    color: #d6d6d6;
+  }
+}
