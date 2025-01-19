@@ -1,0 +1,24 @@
+.header-tag {
+  position: absolute;
+  display: flex;
+  top: 120px;
+  left: 200px;
+  .tag-1 {
+    position: absolute;
+  }
+  .tag-2 {
+    position: absolute;
+    left: 340px;
+    top: 25px;
+  }
+  .tag-3 {
+    position: absolute;
+    left: 200px;
+    top: 155px;
+  }
+  .tag-4 {
+    position: absolute;
+    left: 360px;
+    top: 10px;
+  }
+}

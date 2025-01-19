@@ -1,0 +1,36 @@
+.card {
+  &-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  &-image {
+    width: 170px;
+    display: flex;
+
+    &__background {
+      display: flex;
+      width: 170px;
+      border: 1px solid #fbc625;
+      position: relative;
+    }
+
+    &__background-shadow {
+      width: 170px;
+      height: 102px;
+      background-color: black;
+      position: absolute;
+      top: 10px;
+      right: 7px;
+      z-index: 0;
+    }
+
+    &__character {
+      display: flex;
+      position: absolute;
+      bottom: 1px;
+    }
+  }
+}

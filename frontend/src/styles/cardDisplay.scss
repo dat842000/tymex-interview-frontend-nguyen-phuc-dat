@@ -1,0 +1,20 @@
+.card-display {
+  position: absolute;
+  right: 90px;
+  bottom: 0px;
+  display: flex;
+}
+.card-name {
+  position: absolute;
+  bottom: 10px;
+  left: 45px;
+  span {
+    position: absolute;
+    top: 52%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    font-family: 'Drone Ranger Pro';
+    font-size: 45px;
+    color: white;
+  }
+}
