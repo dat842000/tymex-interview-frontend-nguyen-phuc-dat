@@ -6,6 +6,8 @@ import { Button, Divider, Dropdown, MenuProps, Space, theme } from 'antd';
 import GlobalIcon from '../assets/icons/world.svg';
 import ChevronDown from '../assets/icons/chevron-down.svg';
 import ImgIcon from './ImgIcon.tsx';
+import { MenuOutlined } from '@ant-design/icons';
+import AntdDrawer from './AntdDrawer.tsx';
 
 const { useToken } = theme;
 
@@ -55,6 +57,7 @@ const Navigation = () => {
   const [selectedNavItem, setSelectedNavItem] = useState<NavItem>(
     NAV_BAR_ITEMS[4],
   );
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const contentStyle: React.CSSProperties = {
     backgroundColor: token.colorBgElevated,
@@ -75,6 +78,12 @@ const Navigation = () => {
   return (
     <div className="nav-bar">
       <div className="nav-bar__container-left">
+        <AntdButton
+          onClick={() => setOpenDrawer(true)}
+          icon={<MenuOutlined />}
+          className="nav-btn"
+          text=""
+        />
         {NAV_BAR_ITEMS.map((item) => (
           <span
             key={item.label}
@@ -86,7 +95,7 @@ const Navigation = () => {
         ))}
       </div>
       <div className="nav-bar__container-right">
-        <AntdButton text="Connect Wallet" />
+        <AntdButton className="connect-btn" text="Connect Wallet" />
         <Dropdown
           menu={{ items }}
           dropdownRender={(menu) => (
@@ -110,6 +119,25 @@ const Navigation = () => {
           </Space>
         </Dropdown>
       </div>
+      <AntdDrawer
+        placement={'left'}
+        closable={false}
+        onClose={() => setOpenDrawer(false)}
+        open={openDrawer}
+      >
+        <div className="drawer-container">
+          {NAV_BAR_ITEMS.map((item) => (
+            <span
+              key={item.label}
+              className={`drawer-item ${isActiveNavItem(item.label) ? 'isActive' : ''}`}
+              onClick={() => handleClickNavItem(item)}
+            >
+              {item.label}
+            </span>
+          ))}
+          <AntdButton className="connect-btn" text="Connect Wallet" />
+        </div>
+      </AntdDrawer>
     </div>
   );
 };

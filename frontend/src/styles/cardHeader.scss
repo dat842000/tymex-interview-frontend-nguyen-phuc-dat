@@ -2,8 +2,15 @@
   &-header {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    gap: 25px;
     position: relative;
+    text-transform: uppercase;
+
+    .card-name {
+      font-family: 'Drone Ranger Pro';
+      font-size: 14px;
+    }
   }
 
   &-image {
@@ -30,7 +37,7 @@
     &__character {
       display: flex;
       position: absolute;
-      bottom: 1px;
+      bottom: 0px;
     }
   }
 }

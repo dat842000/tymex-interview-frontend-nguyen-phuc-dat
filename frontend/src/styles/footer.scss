@@ -1,7 +1,7 @@
 .footer {
   background-color: rgba(23, 22, 26, 1);
   width: 100%;
-  height: 400px;
+  height: 100%;
 
   &__container {
     display: flex;
@@ -81,6 +81,40 @@
 
     span {
       cursor: pointer;
+    }
+  }
+}
+@media (max-width: 480px) {
+  .footer__container {
+    padding: 40px 0px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .footer {
+    &__above {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+      align-items: center;
+    }
+    &__navigation-section {
+      align-items: center;
+      gap: 5px;
+    }
+    &__contact-section {
+      align-items: center;
+      gap: 5px;
+    }
+    &__subcribe-section {
+      align-items: center;
+      gap: 5px;
+    }
+    &__below {
+      align-items: center;
+      flex-direction: column-reverse;
+      gap: 20px;
     }
   }
 }

@@ -1,15 +1,16 @@
-import { ConfigProvider, Input, Select } from 'antd';
+import { ConfigProvider, Input, InputProps } from 'antd';
 import React from 'react';
 
-const AntdInput = () => {
+const AntdInput = ({ ...props }: InputProps) => {
   return (
     <ConfigProvider
       theme={{
         components: {
           Input: {
             colorBorder: '#3A3841',
+            colorText: 'white',
             colorTextBase: 'white',
-            colorTextLabel: 'black',
+            colorTextLabel: 'white',
             controlHeight: 40,
           },
         },
@@ -20,7 +21,7 @@ const AntdInput = () => {
         },
       }}
     >
-      <Input placeholder="Select a person" />
+      <Input {...props} />
     </ConfigProvider>
   );
 };

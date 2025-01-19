@@ -1,42 +1,45 @@
 import { ConfigProvider, Select } from 'antd';
 import React from 'react';
-import ImgIcon from './ImgIcon.tsx';
-import ChevronDown from '../assets/icons/chevron-down.svg';
+import { createStyles } from 'antd-style';
+import { SelectProps } from 'antd/es/select/index';
 
-const AntdSelect = () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Select: {
-          selectorBg: 'transparent',
-          colorBorder: '#3A3841',
-          colorTextBase: 'white',
-          colorTextLabel: 'black',
-          optionSelectedColor: 'white',
-          controlHeight: 40,
-        },
-      },
-      token: {
-        colorTextPlaceholder: 'white',
-        colorTextDescription: 'white',
-        borderRadius: 4,
-      },
-    }}
-  >
-    <Select
-      showSearch
-      placeholder="Select a person"
-      filterOption={(input, option) =>
-        (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+const useStyles = () => {
+  // Customize styles
+  return createStyles(({ css }) => ({
+    select: css`
+      .ant-select-selector {
+        color: white;
       }
-      suffixIcon={<ImgIcon size={20} src={ChevronDown} />}
-      options={[
-        { value: '1', label: 'Jack' },
-        { value: '2', label: 'Lucy' },
-        { value: '3', label: 'Tom' },
-      ]}
-    />
-  </ConfigProvider>
-);
+    `,
+  }))();
+};
+
+const AntdSelect = ({ ...props }: SelectProps) => {
+  const { styles } = useStyles();
+  return (
+    <ConfigProvider
+      select={{ className: styles.select }}
+      theme={{
+        components: {
+          Select: {
+            selectorBg: 'transparent',
+            colorBorder: '#3A3841',
+            colorTextBase: 'white',
+            colorTextLabel: 'black',
+            optionSelectedColor: 'black',
+            controlHeight: 40,
+          },
+        },
+        token: {
+          colorTextPlaceholder: 'white',
+          colorTextDescription: 'white',
+          borderRadius: 4,
+        },
+      }}
+    >
+      <Select {...props} />
+    </ConfigProvider>
+  );
+};
 
 export default AntdSelect;
