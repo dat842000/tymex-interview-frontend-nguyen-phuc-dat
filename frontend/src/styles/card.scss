@@ -1,6 +1,6 @@
 .card {
   width: 180px;
-  height: 264px;
+  height: 280px;
   padding: 16px;
   border-radius: 10px;
   background-color: #3a384199;
@@ -10,9 +10,15 @@
 
   &__img-container {
     width: 180px;
-    height: 180px;
+    height: 200px;
     border-radius: 4px;
+    position: relative;
     background: linear-gradient(90deg, #fe5a5a, #f163d2);
+    .card__img {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+    }
   }
 
   &__info {
@@ -26,7 +32,30 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    gap: 5px;
     color: white;
+  }
+
+  &__category-tag {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: aliceblue;
+    font-family: 'INTER';
+    font-size: 12px;
+    color: white;
+    background: #313b4580;
+  }
+
+  &__favorite {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    svg {
+      fill: white;
+    }
   }
 
   &-price {
@@ -34,21 +63,38 @@
     align-items: center;
     font-family: 'Inter';
     font-weight: 500;
-    font-size: 14px;
-    gap: 8px;
+    font-size: 10px;
+
+    gap: 5px;
+    span {
+      width: 60px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
 
   &-name {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     font-family: 'Inter';
+    width: 100px;
   }
 
   &-author {
     display: flex;
     gap: 12px;
     align-items: center;
-    font-family: 'Inter';
-    color: white;
+    span {
+      font-family: 'Inter';
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 140px;
+      color: white;
+    }
   }
 }

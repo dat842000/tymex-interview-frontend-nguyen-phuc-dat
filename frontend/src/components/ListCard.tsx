@@ -1,17 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import AntdButton from './AntdButton.tsx';
-import { CATEGORIES } from '../utils/constant.ts';
 import Card from './Card.tsx';
 import useProductSearch from '../hooks/useProductSearch.ts';
-import ProductContext from '../context/PageContext.ts';
+import AntdTabs from './AntdTabs.tsx';
+import ChevronDown from '../assets/icons/chevron-down.svg';
+import ImgIcon from './ImgIcon.tsx';
+import CardSkeleton from './CardSkeleton.tsx';
 
-const EXPORT_IMG_BACKGROUND = [
-  'linear-gradient(90deg, #fe5a5a, #f163d2)',
-  'linear-gradient(90deg, #DD5AFE, #6366F1)',
-  'linear-gradient(90deg, #49DD81, #22B4C6)',
-  'linear-gradient(90deg, #43A6F6, #5868F3)',
-  'linear-gradient(90deg, #FE955A, #F1DA63)',
-];
 const CATEGORY_OPTION = [
   { value: 'All', label: 'All' },
   { value: 'Upper body', label: 'Upper Body' },
@@ -23,46 +18,69 @@ const CATEGORY_OPTION = [
   { value: 'Mythic', label: 'Mythic' },
   { value: 'Epic', label: 'Epic' },
   { value: 'Rare', label: 'Rare' },
+  { value: 'Common', label: 'Common' },
 ];
 
 const ListCard = () => {
-  const [selectedCate, setSelectedCate] = useState(CATEGORIES[0]);
-  const { fetchNextPage, setSearchOptions } = useProductSearch();
-  const { products } = useContext(ProductContext);
+  const {
+    products,
+    isError,
+    isFetching,
+    fetchNextPage,
+    setSearchOptions,
+    setProducts,
+  } = useProductSearch();
 
   const loadMore = () => {
     fetchNextPage();
   };
 
   const handleClickCate = (item: string) => {
-    setSearchOptions({ filterCate: item });
-    setSelectedCate(item);
+    setProducts([]);
+    setSearchOptions({ pageNumber: 1, filterCate: item });
   };
+
+  const displayProducts = !isError && products.length > 0;
+  const displayEmptyProduct = !isError && !isFetching && products.length === 0;
+  const displayLoadingCard = !isError && isFetching;
+  const displayLoadMore = !isError && (isFetching || products.length !== 0);
   return (
     <div className="list-card">
       <div className="list-card__category">
-        {CATEGORY_OPTION.map((item) => (
-          <AntdButton
-            isSelected={selectedCate === item.value}
-            onClick={() => handleClickCate(item.value)}
-            key={item.value}
-            text={item.label}
-          />
-        ))}
+        <AntdTabs
+          defaultValue={CATEGORY_OPTION[0].value}
+          onChange={(activeKey) => handleClickCate(activeKey)}
+          tabPosition="top"
+          moreIcon={<ImgIcon size={24} src={ChevronDown} />}
+          items={CATEGORY_OPTION.map((cate) => ({
+            label: cate.label,
+            key: cate.value,
+          }))}
+        />
       </div>
+
       <div className="list-card__content">
         <div className="list-card__container">
-          {products.map((item) => (
-            <Card
-              key={item.id}
-              product={item}
-              background={EXPORT_IMG_BACKGROUND[Math.floor(Math.random() * 5)]}
-            />
-          ))}
+          {displayProducts &&
+            products.map((item) => <Card key={item.id} product={item} />)}
+          {isError && <div className="msg-container">Something wrong</div>}
+          {displayEmptyProduct && (
+            <div className="msg-container">Data empty</div>
+          )}
+          {displayLoadingCard &&
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+              <CardSkeleton key={item} />
+            ))}
         </div>
       </div>
       <div className="list-card__footer">
-        <AntdButton onClick={loadMore} text="View more" />
+        {displayLoadMore && (
+          <AntdButton
+            loading={isFetching}
+            onClick={loadMore}
+            text="View more"
+          />
+        )}
       </div>
     </div>
   );

@@ -20,16 +20,6 @@ const useStyles = () => {
           rgba(218, 52, 221, 0) 102.8%
         );
       }
-      .ant-slider-handle {
-        border-color: #fff;
-        box-shadow:
-          0 0 10px #d73895,
-          0 0 20px #d73895;
-      }
-
-      .ant-slider-handle:hover {
-        border-color: #fff;
-      }
     `,
   }))();
 };
@@ -50,12 +40,6 @@ const AntdSlider = ({ ...props }: SliderSingleProps | SliderRangeProps) => {
     >
       <Slider
         styles={{
-          rail: { height: 8 },
-          track: {
-            background:
-              'linear-gradient(91.27deg, #da458f00 0.55%, #DA41A2 24.03%, #DA37CE 83.19%, #da34dd00 102.8%)',
-            height: 8,
-          },
           handle: {
             boxShadow: '0 0 1rem 0.1875rem #da40a387',
           },

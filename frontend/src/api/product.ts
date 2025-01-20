@@ -16,8 +16,8 @@ const getProducts = async (
   products: IProduct[];
 }> => {
   let url = `/products?_page=${page}&limit=${maxResults}`;
-  if (searchValue && searchValue?.trim()) url += `&title_like=${searchValue}`;
   url += `&price_gte=${from}&price_lte=${to}`;
+  if (searchValue && searchValue?.trim()) url += `&title_like=${searchValue}`;
   if (filterTheme && filterTheme !== 'All') url += `&theme=${filterTheme}`;
   if (filterTier && filterTier !== 'All') url += `&tier=${filterTier}`;
   if (filterCate && filterCate !== 'All') url += `&category_like=${filterCate}`;

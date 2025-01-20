@@ -1,19 +1,12 @@
 .header {
   background-image: url(./../assets/images/header-background.jpeg);
-  height: 654px;
   background-repeat: no-repeat;
   background-size: 100%;
 
-  &__layer {
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    position: relative;
-  }
-
   &-footer {
-    position: absolute;
-    bottom: 0;
+    padding-top: 100px;
     display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
   }
 
   &__card-list {

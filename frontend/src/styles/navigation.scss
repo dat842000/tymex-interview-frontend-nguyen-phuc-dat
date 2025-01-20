@@ -5,6 +5,9 @@
   align-items: center;
   justify-content: space-around;
   color: white;
+  position: absolute;
+  top: 0;
+  width: 100%;
 
   .nav-btn {
     display: none;
@@ -35,6 +38,11 @@
     display: flex;
     align-items: center;
     gap: 40px;
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
   }
 }
 
@@ -53,37 +61,12 @@
 @media (max-width: 1440px) {
   .nav-bar {
     justify-content: space-between;
-    padding: 0 30px;
-    &__container-left__item-label {
-      display: none;
+    &__container-left {
+      margin-left: 30px;
     }
-    .nav-btn {
-      display: block;
+    &__container-right {
+      margin-right: 30px;
     }
-  }
-  .drawer-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    .drawer-item {
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 20px;
-      text-transform: uppercase;
-      &.isActive {
-        background: linear-gradient(to right, #da458f, #da34dd);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    }
-  }
-}
-
-@media (max-width: 1440px) {
-  .nav-bar {
-    justify-content: space-between;
-    padding: 0 30px;
     &__container-left__item-label {
       display: none;
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Input } from 'antd';
+import { Divider } from 'antd';
 import {
   NAV_FOOTER_ITEMS,
   NAV_FOOTER_POLICY_ITEMS,
@@ -8,6 +8,7 @@ import AntdButton from './AntdButton.tsx';
 import Handset from '../assets/icons/handset.svg';
 import Comment from '../assets/icons/comment.svg';
 import ImgIcon from './ImgIcon.tsx';
+import AntdInput from './AntdInput.tsx';
 
 const Footer = () => {
   return (
@@ -42,7 +43,7 @@ const Footer = () => {
               Subcribe to receive our latest update
             </span>
             <div className="footer__subcribe-section__content">
-              <Input variant="outlined" placeholder="Your email address" />
+              <AntdInput variant="outlined" placeholder="Your email address" />
               <AntdButton text="Subcribe" />
             </div>
           </div>
