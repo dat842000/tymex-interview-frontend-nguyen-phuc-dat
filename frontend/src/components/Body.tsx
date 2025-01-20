@@ -54,6 +54,7 @@ const Body = () => {
         <ImgIcon
           width="100%"
           height="unset"
+          alt="body-background"
           src={'/images/group.svg'}
           className="body-background"
         />

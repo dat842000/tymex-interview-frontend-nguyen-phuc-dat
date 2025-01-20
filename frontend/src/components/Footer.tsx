@@ -24,11 +24,11 @@ const Footer = () => {
             <span className="footer__contact-section__header">Contact us</span>
             <div className="footer__contact-section__content">
               <div className="footer__contact-section__item">
-                <ImgIcon src={'/icons/handset.svg'} size={20} />
+                <ImgIcon src={'/icons/handset.svg'} alt="handset" size={20} />
                 <span>01234568910</span>
               </div>
               <div className="footer__contact-section__item">
-                <ImgIcon src={'/icons/comment.svg'} size={20} />
+                <ImgIcon src={'/icons/comment.svg'} alt="comment" size={20} />
                 <span>tymex-talent@tyme.com</span>
               </div>
             </div>

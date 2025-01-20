@@ -9,6 +9,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "moduleResolution": "node",
+    "module": "es2015",
     "target": "es6",
     "jsx": "react",
     "removeComments": true,
@@ -16,10 +17,9 @@
     "paths": {
       "~/*": ["src/*"]
     },
-    "types": ["reflect-metadata", "jest"],
+    "types": ["jest", "node"],
     "typeRoots": ["types", "node_modules/@types"],
     "lib": ["dom", "esnext"],
-    "module": "esnext",
     "esModuleInterop": true
   },
   "include": [

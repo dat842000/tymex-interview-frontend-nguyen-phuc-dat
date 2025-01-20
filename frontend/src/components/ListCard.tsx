@@ -6,7 +6,7 @@ import AntdTabs from '../common/antd/AntdTabs';
 import ImgIcon from './ImgIcon';
 import CardSkeleton from './CardSkeleton';
 
-const CATEGORY_OPTION = [
+export const CATEGORY_OPTION = [
   { value: 'All', label: 'All' },
   { value: 'Upper body', label: 'Upper Body' },
   { value: 'Lower body', label: 'Lower Body' },
@@ -67,8 +67,8 @@ const ListCard = () => {
             <div className="msg-container">Data empty</div>
           )}
           {displayLoadingCard &&
-            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-              <CardSkeleton key={item} />
+            Array.from({ length: 10 }, (_, index) => (
+              <CardSkeleton key={index} />
             ))}
         </div>
       </div>

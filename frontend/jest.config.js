@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ['<rootDir>/src'],
+  roots: ['./src'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
@@ -10,5 +10,6 @@ module.exports = {
     userAgent: 'Agent/007',
   },
   testRegex: '(/src/.*(\\.|/)(test|spec))\\.tsx?$',
+  coverageReporters: ["text-summary"],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 }

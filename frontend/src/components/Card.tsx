@@ -18,6 +18,7 @@ const Card = ({ product }: SelfProps) => {
     <div className="card">
       <div
         className="card__img-container"
+        role="test-bg"
         style={{
           background: CATEGORIES_KEY
             ? CATEGORIES_BACKGROUND[CATEGORIES_KEY]
@@ -33,7 +34,11 @@ const Card = ({ product }: SelfProps) => {
         </div>
         <div className="card__category-tag">{product.category}</div>
         <div className="card__favorite">
-          {product.isFavorite ? <HeartFilled /> : <HeartOutlined />}
+          {product.isFavorite ? (
+            <HeartFilled title="filled" />
+          ) : (
+            <HeartOutlined title="outlined" />
+          )}
         </div>
       </div>
       <div className="card__info">
@@ -42,14 +47,14 @@ const Card = ({ product }: SelfProps) => {
             <div className="card-name">{product.title}</div>
           </Tooltip>
           <div className="card-price">
-            <ImgIcon size={14} src={'/icons/ethereum.svg'} />
+            <ImgIcon alt="ethereum" size={14} src={'/icons/ethereum.svg'} />
             <Tooltip title={`${product.price} ETH`}>
               <span>{`${product.price} ETH`}</span>
             </Tooltip>
           </div>
         </div>
         <div className="card-author">
-          <ImgIcon src={product.author?.avatar} />
+          <ImgIcon alt="avatar" src={product.author?.avatar} />
           <Tooltip
             title={`${product.author?.firstName || ''} ${product.author?.lastName || ''}`}
           >

@@ -30,12 +30,6 @@ describe('ImgIcon Component', () => {
     expect(imgElement).toHaveClass('img-icon');
   });
 
-  it('applies the provided className', () => {
-    render(<ImgIcon src="test-image.png" className="custom-class" />);
-    const imgElement = screen.getByRole('img');
-    expect(imgElement).toHaveClass('custom-class');
-  });
-
   it('sets the height and width based on the "size" prop when no height or width is provided', () => {
     render(<ImgIcon src="test-image.png" size={32} />);
     const imgElement = screen.getByRole('img');

@@ -4,7 +4,7 @@ import AntdInput from '../common/antd/AntdInput';
 import SliderSection from './SliderSection';
 import AntdButton from '../common/antd/AntdButton';
 import { FilterOutlined } from '@ant-design/icons';
-import AntdModal from '../common/antd/AntModal';
+import AntdModal from '../common/antd/AntdModal';
 import ImgIcon from './ImgIcon';
 import useProductSearch from '../hooks/useProductSearch';
 
