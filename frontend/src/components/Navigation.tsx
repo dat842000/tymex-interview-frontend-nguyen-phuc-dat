@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { NAV_BAR_ITEMS } from '../utils/constant.ts';
-import { NavItem } from '../types/common.ts';
-import AntdButton from './AntdButton.tsx';
+import { NAV_BAR_ITEMS } from '../utils/constant';
+import { NavItem } from '../types/common';
+import AntdButton from '../common/antd/AntdButton';
 import { Dropdown, MenuProps, theme } from 'antd';
-import GlobalIcon from '../assets/icons/world.svg';
-import ChevronDown from '../assets/icons/chevron-down.svg';
-import ImgIcon from './ImgIcon.tsx';
+import ImgIcon from './ImgIcon';
 import { MenuOutlined } from '@ant-design/icons';
-import AntdDrawer from './AntdDrawer.tsx';
+import AntdDrawer from '../common/antd/AntdDrawer';
 
 const { useToken } = theme;
 
@@ -80,8 +78,8 @@ const Navigation = () => {
           )}
         >
           <div className="language-btn">
-            <ImgIcon width={24} height={24} src={GlobalIcon} />
-            <ImgIcon width={24} height={24} src={ChevronDown} />
+            <ImgIcon width={24} height={24} src={'/icons/world.svg'} />
+            <ImgIcon width={24} height={24} src={'/icons/chevron-down.svg'} />
           </div>
         </Dropdown>
       </div>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import ImgIcon from './ImgIcon.tsx';
-import Group from '../assets/images/group.svg';
-import ListCard from './ListCard.tsx';
-import FilterSection from './FilterSection.tsx';
-import { ProductProvider } from '../context/PageContext.ts';
-import { SearchOptions } from '../types/common.ts';
+import ImgIcon from './ImgIcon';
+import ListCard from './ListCard';
+import FilterSection from './FilterSection';
+import { ProductProvider } from '../context/PageContext';
+import { SearchOptions } from '../types/common';
+import { IProduct } from '~/types/product';
 
 const Body = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -54,7 +54,7 @@ const Body = () => {
         <ImgIcon
           width="100%"
           height="unset"
-          src={Group}
+          src={'/images/group.svg'}
           className="body-background"
         />
       </ProductProvider>

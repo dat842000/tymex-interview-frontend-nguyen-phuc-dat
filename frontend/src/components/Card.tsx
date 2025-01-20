@@ -1,10 +1,9 @@
 import React from 'react';
-import ImgIcon from './ImgIcon.tsx';
-import Ethereum from './../assets/icons/ethereum.svg';
-import { IProduct } from '../types/product.ts';
+import ImgIcon from './ImgIcon';
+import { IProduct } from '../types/product';
 import { Tooltip } from 'antd';
 import { HeartOutlined, HeartFilled } from '@ant-design/icons';
-import { CARD_IMG, CATEGORIES_BACKGROUND } from '../utils/constant.ts';
+import { CARD_IMG, CATEGORIES_BACKGROUND } from '../utils/constant';
 
 type SelfProps = {
   product: IProduct;
@@ -43,7 +42,7 @@ const Card = ({ product }: SelfProps) => {
             <div className="card-name">{product.title}</div>
           </Tooltip>
           <div className="card-price">
-            <ImgIcon size={14} src={Ethereum} />
+            <ImgIcon size={14} src={'/icons/ethereum.svg'} />
             <Tooltip title={`${product.price} ETH`}>
               <span>{`${product.price} ETH`}</span>
             </Tooltip>

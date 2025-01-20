@@ -1,6 +1,7 @@
 import React from 'react';
-import AntdSlider from './AntdSlider.tsx';
-import useProductSearch from '../hooks/useProductSearch.ts';
+import AntdSlider from '../common/antd/AntdSlider';
+import useProductSearch from '../hooks/useProductSearch';
+import { MAX_PRICE, MIN_PRICE } from '../utils/constant';
 
 interface SelfProps {
   setRange: React.Dispatch<React.SetStateAction<number[]>>;
@@ -13,14 +14,14 @@ const SliderSection = ({ setRange }: SelfProps) => {
       <div className="slider-title">Price</div>
       <AntdSlider
         range
-        min={0.01}
-        max={200}
+        min={MIN_PRICE}
+        max={MAX_PRICE}
         defaultValue={[searchOptions.from, searchOptions.to]}
         onChange={(value) => setRange(value)}
       />
       <div className="slider-marks">
-        <div className="item">0.01 ETH</div>
-        <div className="item">200 ETH</div>
+        <div className="item">{`${MIN_PRICE} ETH`}</div>
+        <div className="item">{`${MAX_PRICE} ETH`}</div>
       </div>
     </div>
   );

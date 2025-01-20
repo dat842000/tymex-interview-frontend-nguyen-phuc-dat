@@ -1,10 +1,10 @@
 import { useContext, useEffect, useRef } from 'react';
 import { debounce, uniqBy } from 'lodash';
-import { IProduct } from '../types/product.ts';
-import ProductAPI from '../api/product.ts';
+import { IProduct } from '../types/product';
+import ProductAPI from '../api/product';
 import { v4 } from 'uuid';
-import ProductContext from '../context/PageContext.ts';
-import { SearchOptions } from '../types/common.ts';
+import ProductContext from '../context/PageContext';
+import { SearchOptions } from '../types/common';
 
 interface Result {
   products: IProduct[];

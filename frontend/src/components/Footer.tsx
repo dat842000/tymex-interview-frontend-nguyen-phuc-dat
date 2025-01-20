@@ -1,14 +1,9 @@
 import React from 'react';
 import { Divider } from 'antd';
-import {
-  NAV_FOOTER_ITEMS,
-  NAV_FOOTER_POLICY_ITEMS,
-} from '../utils/constant.ts';
-import AntdButton from './AntdButton.tsx';
-import Handset from '../assets/icons/handset.svg';
-import Comment from '../assets/icons/comment.svg';
-import ImgIcon from './ImgIcon.tsx';
-import AntdInput from './AntdInput.tsx';
+import { NAV_FOOTER_ITEMS, NAV_FOOTER_POLICY_ITEMS } from '../utils/constant';
+import AntdButton from '../common/antd/AntdButton';
+import ImgIcon from './ImgIcon';
+import AntdInput from '../common/antd/AntdInput';
 
 const Footer = () => {
   return (
@@ -29,11 +24,11 @@ const Footer = () => {
             <span className="footer__contact-section__header">Contact us</span>
             <div className="footer__contact-section__content">
               <div className="footer__contact-section__item">
-                <ImgIcon src={Handset} size={20} />
+                <ImgIcon src={'/icons/handset.svg'} size={20} />
                 <span>01234568910</span>
               </div>
               <div className="footer__contact-section__item">
-                <ImgIcon src={Comment} size={20} />
+                <ImgIcon src={'/icons/comment.svg'} size={20} />
                 <span>tymex-talent@tyme.com</span>
               </div>
             </div>

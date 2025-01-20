@@ -1,7 +1,7 @@
 import React from 'react';
-import Navigation from './Navigation.tsx';
-import ImgIcon from './ImgIcon.tsx';
-import CharactersBanner from '../assets/images/characters-banner.svg';
+import Navigation from './Navigation';
+import ImgIcon from './ImgIcon';
+// import CharactersBanner from './images/characters-banner.svg';
 
 const Header = () => {
   return (
@@ -10,7 +10,7 @@ const Header = () => {
         <div className="header-footer">
           <ImgIcon
             className=""
-            src={CharactersBanner}
+            src={'./images/characters-banner.svg'}
             width={'100%'}
             height={'unset'}
           />

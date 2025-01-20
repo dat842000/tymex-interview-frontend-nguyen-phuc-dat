@@ -1,4 +1,4 @@
-import { IAuthor } from './author.ts';
+import { IAuthor } from './author';
 
 export interface IProduct {
   id: number;

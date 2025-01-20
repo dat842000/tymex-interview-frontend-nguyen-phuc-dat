@@ -5,7 +5,7 @@ import pluginReact from 'eslint-plugin-react';
 // import prettier from "eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
-export default [
+module.exports = [
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,

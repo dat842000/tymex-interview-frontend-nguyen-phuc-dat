@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import AntdSelect from './AntdSelect.tsx';
-import AntdInput from './AntdInput.tsx';
-import SliderSection from './SliderSection.tsx';
-import CloseBtn from './../assets/icons/close.png';
-import AntdButton from './AntdButton.tsx';
+import AntdSelect from '../common/antd/AntdSelect';
+import AntdInput from '../common/antd/AntdInput';
+import SliderSection from './SliderSection';
+import AntdButton from '../common/antd/AntdButton';
 import { FilterOutlined } from '@ant-design/icons';
-import AntdModal from './AntModal.tsx';
-import ImgIcon from './ImgIcon.tsx';
-import useProductSearch from '../hooks/useProductSearch.ts';
+import AntdModal from '../common/antd/AntModal';
+import ImgIcon from './ImgIcon';
+import useProductSearch from '../hooks/useProductSearch';
 
 export const TIER_OPTION = [
   { value: 'All', label: 'ALL' },
@@ -146,7 +145,7 @@ const FilterSection = () => {
         </div>
         <div className="filter-section__submit">
           <div className="reset-btn" onClick={clearFilter}>
-            <ImgIcon width={24} height={24} src={CloseBtn} />
+            <ImgIcon width={24} height={24} src={'/icons/close.png'} />
             Reset filter
           </div>
           <AntdButton onClick={handleFilter} text="Search" />
@@ -194,7 +193,7 @@ const FilterSection = () => {
         </div>
         <div className="filter-section__submit">
           <div className="reset-btn" onClick={clearFilter}>
-            <ImgIcon width={24} height={24} src={CloseBtn} />
+            <ImgIcon width={24} height={24} src={'/icons/close.png'} />
             Reset filter
           </div>
           <AntdButton onClick={handleFilter} text="Search" />

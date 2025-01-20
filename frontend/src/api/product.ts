@@ -1,5 +1,5 @@
-import { IProduct } from '../types/product.ts';
-import { axiosInstance } from './index.ts';
+import { IProduct } from '../types/product';
+import { axiosInstance } from './index';
 
 const getProducts = async (
   page: number = 0,

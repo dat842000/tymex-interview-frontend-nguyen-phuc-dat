@@ -1,9 +1,4 @@
 import { NavItem } from '../types/common';
-import FirstCharacter from './../assets/images/cards/1.png';
-import SecondCharacter from './../assets/images/cards/2.png';
-import ThirdCharacter from './../assets/images/cards/3.png';
-import FourthCharacter from './../assets/images/cards/4.png';
-import FifthCharacter from './../assets/images/cards/5.png';
 
 export const NAV_BAR_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
@@ -46,6 +41,12 @@ export const CATEGORIES_BACKGROUND = {
   DEFAULT: 'linear-gradient(90deg, #4AC29A, #BDFFF3)',
 };
 
+const FirstCharacter = '/images/cards/1.png';
+const SecondCharacter = '/images/cards/2.png';
+const ThirdCharacter = '/images/cards/3.png';
+const FourthCharacter = '/images/cards/4.png';
+const FifthCharacter = '/images/cards/5.png';
+
 export const CARD_IMG = {
   1: FirstCharacter,
   2: SecondCharacter,
@@ -68,5 +69,8 @@ export const CARD_IMG = {
   19: FourthCharacter,
   20: FifthCharacter,
 };
+
+export const MIN_PRICE = 0.01;
+export const MAX_PRICE = 200;
 
 export const BASE_URL = 'http://localhost:5005';

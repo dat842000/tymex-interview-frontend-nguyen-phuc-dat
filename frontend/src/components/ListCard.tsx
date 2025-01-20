@@ -1,11 +1,10 @@
 import React from 'react';
-import AntdButton from './AntdButton.tsx';
-import Card from './Card.tsx';
-import useProductSearch from '../hooks/useProductSearch.ts';
-import AntdTabs from './AntdTabs.tsx';
-import ChevronDown from '../assets/icons/chevron-down.svg';
-import ImgIcon from './ImgIcon.tsx';
-import CardSkeleton from './CardSkeleton.tsx';
+import AntdButton from '../common/antd/AntdButton';
+import Card from './Card';
+import useProductSearch from '../hooks/useProductSearch';
+import AntdTabs from '../common/antd/AntdTabs';
+import ImgIcon from './ImgIcon';
+import CardSkeleton from './CardSkeleton';
 
 const CATEGORY_OPTION = [
   { value: 'All', label: 'All' },
@@ -51,7 +50,7 @@ const ListCard = () => {
           defaultValue={CATEGORY_OPTION[0].value}
           onChange={(activeKey) => handleClickCate(activeKey)}
           tabPosition="top"
-          moreIcon={<ImgIcon size={24} src={ChevronDown} />}
+          moreIcon={<ImgIcon size={24} src={'/icons/chevron-down.svg'} />}
           items={CATEGORY_OPTION.map((cate) => ({
             label: cate.label,
             key: cate.value,
