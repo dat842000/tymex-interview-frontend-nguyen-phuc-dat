@@ -1,10 +1,10 @@
-import { useContext, useEffect, useRef } from 'react';
-import { debounce, uniqBy } from 'lodash';
-import { IProduct } from '../types/product';
-import ProductAPI from '../api/product';
-import { v4 } from 'uuid';
-import ProductContext from '../context/PageContext';
-import { SearchOptions } from '../types/common';
+import { useContext, useEffect, useRef } from "react";
+import { debounce, uniqBy } from "lodash";
+import { IProduct } from "../types/product";
+import ProductAPI from "../api/product";
+import { v4 } from "uuid";
+import ProductContext from "../context/PageContext";
+import { SearchOptions } from "../types/common";
 
 interface Result {
   products: IProduct[];
@@ -15,6 +15,7 @@ const fetchData = debounce(
     searchOption: SearchOptions,
     id: string,
     callback: (result: Result, id: string) => void,
+    callbackErr: () => void
   ) => {
     const {
       pageNumber,
@@ -39,12 +40,16 @@ const fetchData = debounce(
       filterTier,
       filterCate,
       sortTime,
-      sortPrice,
-    ).then((data) => {
-      callback(data, id);
-    });
+      sortPrice
+    )
+      .then((data) => {
+        callback(data, id);
+      })
+      .catch(() => {
+        callbackErr();
+      });
   },
-  1000,
+  1000
 );
 
 const useProductSearch = () => {
@@ -69,24 +74,34 @@ const useProductSearch = () => {
         const newId = v4();
         lastApiRef.current = newId;
 
-        fetchData(searchOptions, newId, (results: Result, id: string) => {
-          if (lastApiRef.current !== id) return; // old API
+        const handleSuccess = (results: Result, id: string) => {
+          if (lastApiRef.current !== id) return; // Ignore outdated responses
           setIsFetching(false);
-          if (searchOptions.pageNumber === 1) {
-            setProducts(results.products);
-            return;
-          }
-          setProducts(uniqBy([...products, ...results.products], 'id'));
-        });
+
+          setProducts((prevProducts) =>
+            searchOptions.pageNumber === 1
+              ? results.products
+              : uniqBy([...prevProducts, ...results.products], "id")
+          );
+        };
+        const handleError = () => {
+          setIsError(true);
+          setIsFetching(false);
+        };
+
+        fetchData(searchOptions, newId, handleSuccess, handleError);
       } catch (e) {
         setIsError(true);
         setIsFetching(false);
       }
     };
 
+    // fetch the first time
     fetchProducts();
+    // Set up interval fetching every 60s
     const intervalId = setInterval(fetchProducts, 60000);
 
+    // clean up when change dependency
     return () => clearInterval(intervalId);
   }, [searchOptions]);
 
