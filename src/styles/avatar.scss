@@ -1,0 +1,20 @@
+.avatar-author {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: aliceblue;
+  position: relative;
+  .status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    background: black;
+    border-radius: 50%;
+    right: -3px;
+  }
+}
