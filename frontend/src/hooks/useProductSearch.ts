@@ -62,24 +62,32 @@ const useProductSearch = () => {
   const lastApiRef = useRef<string>(null);
 
   useEffect(() => {
-    try {
-      setIsFetching(true);
-      setIsError(false);
-      const newId = v4();
-      lastApiRef.current = newId;
-      fetchData(searchOptions, newId, (results: Result, id: string) => {
-        if (lastApiRef.current !== id) return; // old API
+    const fetchProducts = () => {
+      try {
+        setIsFetching(true);
+        setIsError(false);
+        const newId = v4();
+        lastApiRef.current = newId;
+
+        fetchData(searchOptions, newId, (results: Result, id: string) => {
+          if (lastApiRef.current !== id) return; // old API
+          setIsFetching(false);
+          if (searchOptions.pageNumber === 1) {
+            setProducts(results.products);
+            return;
+          }
+          setProducts(uniqBy([...products, ...results.products], 'id'));
+        });
+      } catch (e) {
+        setIsError(true);
         setIsFetching(false);
-        if (searchOptions.pageNumber === 1) {
-          setProducts(results.products);
-          return;
-        }
-        setProducts(uniqBy([...products, ...results.products], 'id'));
-      });
-    } catch (e) {
-      setIsError(true);
-      setIsFetching(false);
-    }
+      }
+    };
+
+    fetchProducts();
+    const intervalId = setInterval(fetchProducts, 60000);
+
+    return () => clearInterval(intervalId);
   }, [searchOptions]);
 
   const fetchNextPage = () => {
