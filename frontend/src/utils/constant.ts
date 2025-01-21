@@ -73,4 +73,4 @@ export const CARD_IMG = {
 export const MIN_PRICE = 0.01;
 export const MAX_PRICE = 200;
 
-export const BASE_URL = 'http://localhost:5005';
+export const BASE_URL = 'https://datln-mock.k8s.theon.id.vn';
